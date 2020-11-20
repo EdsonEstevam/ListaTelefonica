@@ -30,13 +30,20 @@ namespace _3CamadasLista
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            dto.Nome = txtNome.Text;
-            dto.Sobrenome = txtSobrenome.Text;
-            dto.Email = txtEmail.Text;
-            dto.Telefone = txtTelefone.Text;
-            dto.Categoria = cboCategoria.Text;
-            bll.Inserir(dto);
-            CarregarGrid();
+            try
+            {
+                dto.Nome = txtNome.Text;
+                dto.Sobrenome = txtSobrenome.Text;
+                dto.Email = txtEmail.Text;
+                dto.Telefone = txtTelefone.Text;
+                dto.Categoria = cboCategoria.Text;
+                bll.Inserir(dto);
+                CarregarGrid();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro " + ex);
+            }
         }
         private void CarregarGrid()
         {
