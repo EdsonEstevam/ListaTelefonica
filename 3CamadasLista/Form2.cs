@@ -49,5 +49,17 @@ namespace _3CamadasLista
         {
             Grid1.DataSource = bll.CarregaGrid();
         }
+
+        private void Grid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Código para colocar os dados da cell seleciondo do grid para os textboxes
+            txtID.Text = Grid1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtNome.Text = Grid1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtSobrenome.Text = Grid1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtTelefone.Text = Grid1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtEmail.Text = Grid1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            cboCategoria.Text = Grid1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            
+        }
     }
 }
