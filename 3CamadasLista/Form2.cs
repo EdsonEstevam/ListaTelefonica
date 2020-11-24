@@ -32,6 +32,7 @@ namespace _3CamadasLista
         {
             try
             {
+                dto.Id = int.Parse(txtID.Text);
                 dto.Nome = txtNome.Text;
                 dto.Sobrenome = txtSobrenome.Text;
                 dto.Email = txtEmail.Text;
@@ -59,6 +60,41 @@ namespace _3CamadasLista
             txtTelefone.Text = Grid1.Rows[e.RowIndex].Cells[3].Value.ToString();
             txtEmail.Text = Grid1.Rows[e.RowIndex].Cells[4].Value.ToString();
             cboCategoria.Text = Grid1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NovoUsu();
+        }
+        
+        void NovoUsu()
+        {
+            txtID.Clear();
+            txtNome.Clear();
+            txtSobrenome.Clear();
+            txtTelefone.Clear();
+            txtEmail.Clear();
+            cboCategoria.SelectedIndex = -1;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dto.Id = int.Parse(txtID.Text);
+                dto.Nome = txtNome.Text;
+                dto.Sobrenome = txtSobrenome.Text;
+                dto.Email = txtEmail.Text;
+                dto.Telefone = txtTelefone.Text;
+                dto.Categoria = cboCategoria.Text;
+                bll.Editar(dto);
+                CarregarGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro " + ex);
+            }
             
         }
     }

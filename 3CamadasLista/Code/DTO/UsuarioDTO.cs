@@ -8,7 +8,12 @@ namespace _3CamadasLista.Code.DTO
 {
     class UsuarioDTO
     {
-
+        private int id;
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         private string nome;
         public string Nome
         {

@@ -18,19 +18,21 @@ namespace _3CamadasLista.Code.DAL
         private MySqlDataReader dr;
         private MySqlCommandBuilder cb;
       
-        
+        //Conectando ao banco de dados
         public void Conectar()
         {
-            try
-            {
+           
                 con.ConnectionString = Properties.Settings.Default.CST;
                 con.Open();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro" + ex);
+                
+            
+        }
+        public void Desconectar()
+        {
 
-            }
+              con.Close();
+
+
         }
         public void ExecutarCmn(string comandoSql)
         {
