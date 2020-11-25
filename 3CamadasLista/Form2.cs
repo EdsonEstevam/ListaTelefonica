@@ -17,6 +17,7 @@ namespace _3CamadasLista
     {
         UsuarioBLL bll = new UsuarioBLL();
         UsuarioDTO dto = new UsuarioDTO();
+        Verificar verificar = new Verificar();
 
         public Form2()
         {
@@ -32,7 +33,7 @@ namespace _3CamadasLista
         {
             try
             {
-                dto.Id = int.Parse(txtID.Text);
+                
                 dto.Nome = txtNome.Text;
                 dto.Sobrenome = txtSobrenome.Text;
                 dto.Email = txtEmail.Text;
@@ -80,9 +81,10 @@ namespace _3CamadasLista
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             try
             {
-                dto.Id = int.Parse(txtID.Text);
+                
                 dto.Nome = txtNome.Text;
                 dto.Sobrenome = txtSobrenome.Text;
                 dto.Email = txtEmail.Text;
@@ -96,6 +98,36 @@ namespace _3CamadasLista
                 MessageBox.Show("Ocorreu um erro " + ex);
             }
             
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            if (verificar.Perm(true))
+            {
+                if (txtID.Text == "")
+                {
+
+                    MessageBox.Show("Selecione um usuário antes te tentar excluir", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
+                else
+                {
+                    dto.Id = int.Parse(txtID.Text);
+                    bll.Deletar(dto);
+                    CarregarGrid();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sem permissão");
+                btnDeletar.Visible = false;
+            }
+        }
+        
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

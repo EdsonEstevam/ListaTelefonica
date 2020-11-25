@@ -44,7 +44,6 @@ namespace _3CamadasLista.Code.DTO
             get { return categoria; }
             set { categoria = value; }
         }
-
-
+        
     }
 }

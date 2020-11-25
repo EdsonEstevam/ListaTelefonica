@@ -40,7 +40,7 @@ namespace _3CamadasLista.Code.DAL
             {
                 MySqlCommand cmn = new MySqlCommand(comandoSql, con);
                 cmn.ExecuteNonQuery();
-                MessageBox.Show("O registro foi gravado com sucesso");
+                MessageBox.Show("Operação realizada com sucesso");
                 con.Close();
             }
             catch (Exception ex)
@@ -58,5 +58,6 @@ namespace _3CamadasLista.Code.DAL
             da.Fill(data);
             return data;
         }
+        
     }
 }

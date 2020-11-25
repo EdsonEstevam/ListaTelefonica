@@ -41,6 +41,24 @@ namespace _3CamadasLista.Code.BLL
                 bd.ExecutarCmn(comando);
                 bd.Desconectar();
             }
+
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nos desculpe, mas ocorreu um erro\n" + ex);
+            }
+        }
+
+        public void Deletar(UsuarioDTO dto)
+        {
+            try
+            {
+
+                string comando = "DELETE FROM dadoslista WHERE id = '" + dto.Id + "'";
+                bd.Conectar();
+                bd.ExecutarCmn(comando);
+                bd.Desconectar();
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Nos desculpe, mas ocorreu um erro\n" + ex);
